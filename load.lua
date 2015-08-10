@@ -17,9 +17,9 @@ function readImg(path, index)
     c = {image.crop(img, 0,0,50,50), image.crop(img,25,0,75,50), image.crop(img, 55,0,105,50), image.crop(img, 75,0,125,50) }
     for i = 1,digitLength do
         --print(c[i]:size())
-        print("index:"..index)
+        --print("index:"..index)
         result.X[index] = c[i]
-        result.y[1][index] = string.byte(rets.sub(rets, i, i))
+        result.y[1][index] = string.byte(rets.sub(rets, i, i)) - 64
         index = index + 1
     end
     --print(result.X[2][1])
@@ -50,7 +50,10 @@ end
 
 print("===== Begin =====")
 indexDict={}
-dirs = {'/root/code/torch-test/img', '/root/code/torch-test/img2'}
+--for train data
+--dirs = {'/media/dada/D242E48742E471A1/Projects/python/IMG/newTrain-2'}
+--for test data
+dirs = {'/media/dada/D242E48742E471A1/Projects/python/captchatrain/img/test/tencent'}
 fileCount = 0
 for index, value in ipairs(dirs) do
     print(value)
@@ -65,4 +68,5 @@ for index, value in ipairs(dirs) do
     imgIndex = walkDir(value, imgIndex)
 end
 --print(result.X[2][1])
-torch.save("img.t7", result, "ascii")
+print("===== Read Img Finished, Begin Save =====")
+torch.save("test.t7", result, "ascii")

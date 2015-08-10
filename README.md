@@ -15,5 +15,11 @@ th> t = torch.ByteTensor(1,10)
                                                                       [0.0001s]	
 th> t[1][1] = 1
 
+ori img path = /media/dada/D242E48742E471A1/Projects/python/IMG
+newTrain-1,  2,  3
 
+th> string.byte('A')
+65
 
+th> string.byte('z')
+122
